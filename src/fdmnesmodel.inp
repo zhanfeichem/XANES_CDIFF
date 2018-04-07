@@ -1,0 +1,44 @@
+! Fdmnes indata file
+! Calculation for the copper K-edge in copper cfc
+! Finite difference method calculation with convolution
+Edge
+K
+ Filout
+   out
+
+ Range                        ! Energy range of calculation (eV)
+ -10.0  0.2  0.0 0.2 10.0 0.5 50 2.0 100.0  ! first energy, step, intermediary energy, step ..., last energy    
+!-10.0  0.2  0.0 0.2 10.0 0.5 50 2.0 400.0
+ Radius                       ! Radius of the cluster where final state calculation is performed
+   6.5                      ! For a good calculation, this radius must be increased up to 6 or 7 Angstroems
+
+Green
+Energpho
+
+!Quadrupole
+!Relativism
+!Magnetism
+!Spinorbite
+
+!Octupole
+!Dipmag
+Convolution
+Atom
+26
+74
+17
+16
+7
+6
+molecule
+1.0 1.0 1.0 90.0 90.0 90.0
+!geom
+
+ 
+
+
+
+ 
+
+
+

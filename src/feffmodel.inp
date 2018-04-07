@@ -1,0 +1,33 @@
+TITLE CoIIh2o-dpabpy
+COREHOLE FSR
+*EDGE K	0 0.0
+EDGE K 
+CONTROL 1 1 1 1 1 1
+PRINT   0 0 0 0 0 2
+
+SCF	6.5	1
+FMS	6.5	1
+XANES	8.0	0.05
+EXCHANGE 0 0.0  0.0 
+*DIMS 50 -1
+*EXAFS 12
+*CRITERIA 4 50
+
+ 
+ POTENTIALS
+  * ipot   Z      tag
+     0     26     Fe        
+     1     7      N                  
+     2     6      C 
+     3     1      H
+   * 4     8      O   
+ 
+
+              
+
+
+ ATOMS                  * this list contains 206 atoms
+ *   x          y          z     ipot tag           distance
+ 
+     
+  
