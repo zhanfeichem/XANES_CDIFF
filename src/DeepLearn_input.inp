@@ -1,0 +1,111 @@
+# Fephen3
+display 1
+runCore 1 #run 1 without run of Core 0  debug runCore 0+savedir 1
+savedir 1
+runtype 4 #runtype 1feffprm 2feffdiff 3fdmprm 4fdmdiff
+indir inDL/   #input position
+#OBJ setting
+OBJ 11 #1:my defination,11: EXAFS factor,2:R factor with weight=1,3 to do list
+OBJ_eps 1 # set epsilon in R factor
+OBJ_afit 7150
+OBJ_bfit 7190 #obj energy range 7107 7200
+OBJ_aout 7110
+OBJ_bout 7180
+#OPT setting
+npar 9
+OPT DL   #NOMAD NLOPT DL
+#NLOPT setting
+NLOPT_nval 1 #NLOPT objective function evaluate number
+#NLOPT_etol 0.0001
+NLOPT_etol 0.01
+NLOPT_ALG  ISRES  #DIRECT_L ISRES CRS2_LM  ESCH
+#test
+#NLOPT_x0 0 0 2.2 0 0 0 0 0 0
+#NLOPT_xl -100 -100 -100 -100 -100 -100 -100 -100 -100
+#NLOPT_xu 100 100 100 100 100 100 100 100 100
+#using
+NLOPT_x0 0.0 0.0 0.0 0 0 0 0 0 0
+NLOPT_xl -0.3 -0.3 -0.3 -0.34 -0.34 -0.34 -0.34 -0.34 -0.34 
+NLOPT_xu 0.3 0.3 0.3 0.34 0.34 0.34 0.34 0.34 0.34
+#inner fit
+ip_num 1000
+nstr_ALG  ISRES #innner opt alg DIRECT_L  CRS2_LM ESCH ESCH ISRES
+nstr_num 1000   #inner fit number
+#势设置
+npot 6
+#FEFF
+#pot
+#Fe 0
+#N 1
+#C 2
+#H 3
+#O 4
+#FDMNES
+pot
+Fe 1
+W  2
+Cl 3
+S  4
+N  5
+C  6
+
+#prm setting
+#prmname 2_20off.dat #bsrf dat collected on 2-20
+prmname Feprm.fdmnes
+#prmname FeHS.dat
+#prm non-struct par setting 
+es 0 -5 5
+ra 1 0.7 1.5
+#es -0.457604 -0.457604 -0.457604 
+#ra 1 0.7 1.5
+ef_feff 0 -2.0 2.0
+conv_feff 0 0 5
+#total intermediate setting
+diff_exp_char Fediff.dat   #exp diff
+es_diff 0 0 0
+ex_diff 0.6 0.6 0.6
+#feff intermediate
+prm_the_char ef0Fe-0.457604_33.4953.fdmnes #theoretical prm
+es_prm -0.457604
+ra_prm 33.4953
+#old aps data
+#prm_the_char  Feprm.feff  #theoretical prm
+#es_prm -2.53345 
+#ra_prm 0.989687
+#FDMNES intermediate setting
+#prm_the_char Feprm.fdm
+#es_prm 3.51254 
+#ra_prm 33.8533
+#geometry setting
+geom_model 11
+geom_n 3   #rigid body number
+geom_ngroup 0 #char of group value 0 1 2
+geom_xi 0 1 2  
+#atom of Fe
+pdbname FEXWIP.pdb
+atom
+-1.881	 0.984  -1.828
+1.919  -0.227  -0.367
+-0.377  -0.678   2.120 
+#3D geometry change
+geom_group B C D
+geom_r     0 1 2 
+geom_theta 3 4 5
+geom_phi   6 7 8
+#FDMNES
+n_conv 5 #five conv par
+nopt_conv 1 #conv par fit number
+#fdm_up_conv   10 1.33 20 80 50
+#fdm_low_conv -10 1.33 0 10  5
+#fdm_x0_conv   10 1.33 20 80 50
+
+fdm_up_conv   0 1.33 19.5815 16.3999 47.9449
+fdm_low_conv 0 1.33 19.5815 16.3999 47.9449
+fdm_x0_conv   0 1.33 19.5815 16.3999 47.9449
+
+
+
+
+
+
+
