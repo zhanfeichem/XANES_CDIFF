@@ -1,0 +1,98 @@
+# Fephen3
+display 1
+runCore 1 #run 1 without run of Core 0  debug runCore 0+savedir 1
+savedir 1
+runtype 2 #runtype 1feffprm 2feffdiff 3fdmprm 4fdmdiff
+indir inex/   #input position
+#OBJ setting
+OBJ 2 #1:my defination,11: EXAFS factor,2:R factor with weight=1,3 to do list
+OBJ_eps 1 # set epsilon in R factor
+OBJ_afit 7150
+OBJ_bfit 7190 #obj energy range 7107 7200
+OBJ_aout 7110
+OBJ_bout 7180
+#OPT setting
+npar 9
+OPT NLOPT   #DIRECT_L CRS2_LM ISRES ESCH#SBPLX PRAXIS BOBYQA
+#NLOPT setting
+NLOPT_nval 1 #NLOPT objective function evaluate number
+NLOPT_etol 0.001
+NLOPT_ALG  ISRES    #DIRECT_L ISRES CRS2_LM  ESCH
+#NELDERMEAD SBPLX PRAXIS BOBYQA NEWUOA_BOUND COBYLA
+#using
+NLOPT_x0 0.1 0.0 0.0 0 0 0 0 0 0
+NLOPT_xl -0.3 -0.3 -0.3 -0.34 -0.34 -0.34 -0.34 -0.34 -0.34 
+NLOPT_xu 0.3 0.3 0.3 0.34 0.34 0.34 0.34 0.34 0.34
+#inner fit
+ip_num 1000
+nstr_ALG  DIRECT_L #innner opt alg DIRECT_L  CRS2_LM ESCH ESCH ISRES
+nstr_num 1000   #inner fit number
+#势设置
+npot 5
+#FEFF
+pot
+Fe 0
+N 1
+C 2
+H 3
+O 4
+#FDMNES
+#pot
+#Fe 1
+#N 2
+#C 3
+#H 4
+#O 5
+#prm setting
+prmname Feprm.dat
+#prm non-struct par setting 
+es 0 -5 5
+ra 1 0.7 1.5
+ef_feff 0 -2.0 2.0
+conv_feff 0 0 5
+#total intermediate setting
+diff_exp_char Fediff.dat
+es_diff 0 0 0
+ex_diff 0.38 0.1 0.9
+#feff intermediate
+prm_the_char Feprm-2.39022_0.977697.feff #theoretical prm
+es_prm -2.39022
+ra_prm 0.977697
+#FDMNES intermediate setting
+#prm_the_char Feprm.fdm
+#es_prm 3.51254 
+#ra_prm 33.8533
+
+#geometry setting
+geom_model 2
+geom_n 3   #rigid body number
+geom_ngroup 0 #char of group value 0 1 2
+
+#atom setting
+#pdbname paper_FEFFNOMAD.pdb
+pdbname  Fe_unix.pdb #prm pdb
+#atom of Fe_unix.pdb
+atom
+0.1150  -1.4640  -0.0615
+-0.4400  0.6825  1.2355
+0.3660  0.8345  -1.1715
+
+#3D geometry change
+geom_group B C D
+geom_r     0 1 2 
+geom_theta 3 4 5
+geom_phi   6 7 8
+#FDMNES
+n_conv 5 #five conv par
+nopt_conv 1 #conv par fit number
+fdm_up_conv   10 1.33 20 80 50
+fdm_low_conv -10 1.33 0 10  5
+fdm_x0_conv   10 1.33 20 80 50
+
+
+
+
+
+
+
+
